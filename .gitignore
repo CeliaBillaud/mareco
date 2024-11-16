@@ -63,3 +63,8 @@
 /vendor/
 ###< symfony/framework-bundle ###
 >>>>>>> 6b5ca4f (Initial commit: Symfony 7.1 project setup)
+
+###> symfony/asset-mapper ###
+/public/assets/
+/assets/vendor/
+###< symfony/asset-mapper ###
