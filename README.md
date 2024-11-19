@@ -15,7 +15,7 @@ MaReco is a web application that will allow users to create and share recommenda
 - PHP 8.2
 - Symfony 7.1
 - MySQL
-- React & Webpack Encore (coming soon)
+- React & Webpack Encore
 
 ## Prerequisites
 

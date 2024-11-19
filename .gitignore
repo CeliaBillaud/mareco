@@ -64,6 +64,23 @@
 ###< symfony/framework-bundle ###
 >>>>>>> 6b5ca4f (Initial commit: Symfony 7.1 project setup)
 
+###> symfony/webpack-encore-bundle ###
+/node_modules/
+/public/build/
+npm-debug.log
+yarn-error.log
+###< symfony/webpack-encore-bundle ###
+
+###> phpunit/phpunit ###
+/phpunit.xml
+.phpunit.result.cache
+###< phpunit/phpunit ###
+
+###> symfony/phpunit-bridge ###
+.phpunit.result.cache
+/phpunit.xml
+###< symfony/phpunit-bridge ###
+
 ###> symfony/asset-mapper ###
 /public/assets/
 /assets/vendor/
