@@ -5,9 +5,9 @@
 | **Champ**       | **Type**        | **Null** | **Default**        | **Description**                                        |
 |------------------|-----------------|----------|--------------------|--------------------------------------------------------|
 | `id`            | INT             | Non      | AUTO_INCREMENT     | Identifiant unique de l'utilisateur.                  |
-| `email`         | STRING(180)     | Non      | -                  | Adresse e-mail unique.                                 |
+| `email`         | STRING(255)     | Non      | -                  | Adresse e-mail unique.                                 |
 | `password`      | STRING(255)     | Non      | -                  | Mot de passe encodé.                                   |
-| `username`      | STRING(100)     | Non      | -                  | Nom d'utilisateur ou pseudonyme.                      |
+| `username`      | STRING(255)     | Non      | -                  | Nom d'utilisateur ou pseudonyme.                      |
 | `created_at`    | DATETIME        | Non      | CURRENT_TIMESTAMP  | Date de création de l'utilisateur.                    |
 | `updated_at`    | DATETIME        | Non      | CURRENT_TIMESTAMP  | Date de dernière modification.                        |
 
@@ -20,11 +20,11 @@
 | `id`            | INT             | Non      | AUTO_INCREMENT     | Identifiant unique de la recommandation.              |
 | `user_id`       | INT (FK)        | Non      | -                  | Identifiant de l'utilisateur qui a créé la reco.       |
 | `title`         | STRING(255)     | Non      | -                  | Titre de la recommandation.                           |
-| `content`       | TEXT            | Non      | -                  | Description ou contenu de la recommandation.          |
-| `type`          | STRING(50)      | Non      | -                  | Type de la recommandation (livre, film, etc.).         |
-| `link`          | STRING(255)     | Oui      | NULL               | Lien externe associé à la reco (optionnel).           |
+| `content`       | TEXT            | Oui      | -                  | Description ou contenu de la recommandation.          |
+| `type`          | STRING(255)      | Non      | -                  | Type de la recommandation (livre, film, etc.).         |
+| `link`          | STRING(255)     | Non     | -             | Lien externe associé à la reco (optionnel).           |
 | `created_at`    | DATETIME        | Non      | CURRENT_TIMESTAMP  | Date de création de la recommandation.                |
-| `updated_at`    | DATETIME        | Non      | CURRENT_TIMESTAMP  | Date de dernière modification.                        |
+| `updated_at`    | DATETIME        | Yes      | CURRENT_TIMESTAMP  | Date de dernière modification.                        |
 
 ---
 
@@ -40,6 +40,8 @@
 | `updated_at`    | DATETIME        | Non      | CURRENT_TIMESTAMP  | Date de dernière modification.                        |
 
 ---
+
+<!-- A voir plus tard si on créé une autre table avec les amis -->
 
 ### **Table `friends`**
 
@@ -60,6 +62,8 @@
 2. **`users` ↔ `friend_requests`** :  
    - Relation **OneToMany** pour `sender` (utilisateur qui envoie des demandes).  
    - Relation **OneToMany** pour `receiver` (utilisateur qui reçoit des demandes).
+
+   $user->getFriendRequests(), ajouté pour le receiver donc en utilisant cette propriété on récupère les demandes d'amis reçues.
 
 3. **`users` ↔ `friends`** :  
    Relation **ManyToMany** (via `friends`), représentée par deux colonnes : `user_id` et `friend_id`.
