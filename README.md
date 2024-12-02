@@ -16,6 +16,7 @@ MaReco is a web application that will allow users to create and share recommenda
 - Symfony 7.1
 - MySQL
 - React & Webpack Encore
+- daisyUI
 
 ## Prerequisites
 
