@@ -2,5 +2,12 @@
 
 {% block body %}
 
-Ici mareco commence !
+<div {{ react_component('Hero', 
+    {
+        title:'Bienvenue sur MaReco !',
+        content: 'Partage tes découvertes et tes coups de coeurs avec tes amis, découvre leurs reco !',
+        button: 'Inscris-toi',
+        image: asset('build/images/hero.png')
+    }
+      ) }}></div>
 {% endblock %}
