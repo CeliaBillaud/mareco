@@ -2,12 +2,21 @@
 
 {% block body %}
 
+{#  Home for visitor not connected
+Code hidden waiting for the login system #}
 <div {{ react_component('Hero', 
     {
         title:'Bienvenue sur MaReco !',
-        content: 'Partage tes découvertes et tes coups de coeurs avec tes amis, découvre leurs reco !',
-        button: 'Inscris-toi',
+        content: 'Partage tes découvertes et tes coups de coeurs avec tes amis et découvre leurs reco !',
+        button: 'Commencer à partager !',
         image: asset('build/images/hero.png')
     }
-      ) }}></div>
+      ) }}>
+</div> 
+
+{# todo: restricted area only for connected user #}
+
+<h2 class="text-4xl font-bold">Les dernières recommandations</h2>
+
+
 {% endblock %}
