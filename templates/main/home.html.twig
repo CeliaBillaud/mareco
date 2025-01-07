@@ -9,14 +9,28 @@ Code hidden waiting for the login system #}
         title:'Bienvenue sur MaReco !',
         content: 'Partage tes découvertes et tes coups de coeurs avec tes amis et découvre leurs reco !',
         button: 'Commencer à partager !',
-        image: asset('build/images/hero.png')
+        image: asset('build/images/hero.png'),
+        imageAlt: 'logo MaReco',
     }
       ) }}>
 </div> 
 
 {# todo: restricted area only for connected user #}
 
-<h2 class="text-4xl font-bold">Les dernières recommandations</h2>
+<div class="max-w-6xl mx-auto">
+    <h2 class="font-bold text-4xl my-4">Les Dernières Recos</h2>
+    <div {{react_component('Reco',
+        {
+            title: 'Lee',
+            content: 'Un biopic captivant sur Lee Miller, mannequin devenue photographe de guerre. Le film explore son parcours audacieux et ses clichés marquants qui témoignent des horreurs et de la résilience humaine.',
+            image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTA3Mdv-oGJgHLnO8LJeiNpGCVQonH8ATOHhLUca1oN7aGn3H3v',
+            imageAlt: 'Lee',
 
+        }
+    )
+
+    }}>
+    </div>
+</div>
 
 {% endblock %}
