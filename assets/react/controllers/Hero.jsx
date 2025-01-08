@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function (props) {
-    return <div className="hero bg-base-200 min-h-screen">
+    return <div className="hero bg-base-200 ">
             <div className="hero-content flex-col lg:flex-row-reverse">
             <img
                 src={props.image}
