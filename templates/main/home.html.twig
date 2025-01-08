@@ -17,19 +17,12 @@ Code hidden waiting for the login system #}
 
 {# todo: restricted area only for connected user #}
 
+
+
 <div class="max-w-6xl w-2/3 mx-auto p-4">
     <h2 class="font-bold text-4xl my-4">Les Dernières Recos</h2>
-    <div {{react_component('Reco',
-        {
-            userName: 'John Doe',
-            title: 'Lee',
-            content: 'Un biopic captivant sur Lee Miller, mannequin devenue photographe de guerre. Le film explore son parcours audacieux et ses clichés marquants qui témoignent des horreurs et de la résilience humaine.',
-            image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTA3Mdv-oGJgHLnO8LJeiNpGCVQonH8ATOHhLUca1oN7aGn3H3v',
-            imageAlt: 'Lee',
-
-        }
+    <div {{react_component('RecoList', {recos : recos}
     )
-
     }}>
     </div>
 </div>

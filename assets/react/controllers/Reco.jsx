@@ -14,7 +14,7 @@ export default function (props) {
                         <span className="flex items-center justify-center gap-2">
                             <div className="text-white h-8 w-8 rounded-full ring-2 ring-white flex items-center justify-center font-bold bg-black">J</div>
                         <span className="group-hover:text-violet-700">{props.userName}</span>
-                        <time className="text-gray-500 text-xs">December 19, 2024</time>
+                        <time className="text-gray-500 text-xs">{props.date}</time>
                         </span>
                     </a>
                 </div>
