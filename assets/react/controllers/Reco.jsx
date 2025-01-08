@@ -1,8 +1,8 @@
 import React from 'react';
 
 export default function (props) {
-    return <article className="flex gap-4 items-center w-full bg-white py-6 px-6 border border-gray-200 rounded-md">
-                <div className="h-48 w-72 relative flex items-center object-cover rounded-xl overflow-hidden">
+    return <article className="flex flex-col sm:flex-row gap-4 items-center w-full bg-white py-6 px-6 border border-gray-200 rounded-md">
+                <div className="sm:h-48 sm:w-72 relative flex items-center object-cover rounded-xl overflow-hidden">
                             <img
                                 src={props.image}
                                 alt={props.imageAlt}
