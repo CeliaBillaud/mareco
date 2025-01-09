@@ -15,14 +15,6 @@ class FriendRequests
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\ManyToOne]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?User $sender = null;
-
-    #[ORM\ManyToOne(inversedBy: 'friendRequests')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?User $receiver = null;
-
     #[ORM\Column(enumType: Status::class)]
     private ?Status $status = null;
 
@@ -36,30 +28,7 @@ class FriendRequests
     {
         return $this->id;
     }
-
-    public function getSender(): ?User
-    {
-        return $this->sender;
-    }
-
-    public function setSender(?User $sender): static
-    {
-        $this->sender = $sender;
-
-        return $this;
-    }
-
-    public function getReceiver(): ?User
-    {
-        return $this->receiver;
-    }
-
-    public function setReceiver(?User $receiver): static
-    {
-        $this->receiver = $receiver;
-
-        return $this;
-    }
+  
 
     public function getStatus(): ?Status
     {
