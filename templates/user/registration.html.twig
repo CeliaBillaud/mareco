@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+    <form method="post" class="w-1/2 mx-auto py-5 flex flex-col content-center gap-4">
+
+        {% if app.user %}
+            <div class="mb-3">
+                You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+            </div>
+        {% endif %}
+
+        <h1 class="text-center text-3xl font-bold">Inscription</h1>
+
+            {{ form_start(formUser, {'attr' : {'novalidate' : 'novalidate'}}) }}
+
+            {{ form_widget(formUser) }}
+
+            <button class="btn btn-lg btn-primary text-white w-1/2 mx-auto">{{ button_label|default("S'inscrire") }}</button>
+        
+            {{ form_end(formUser) }}
+
+    </form>
+{% endblock %}
