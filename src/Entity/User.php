@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -30,6 +32,24 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     #[ORM\Column]
     private ?string $password = null;
+
+    /**
+     * @var Collection<int, Recommendation>
+     */
+    #[ORM\OneToMany(targetEntity: Recommendation::class, mappedBy: 'user', orphanRemoval: true)]
+    private Collection $recommendations;
+
+    /**
+     * @var Collection<int, FriendRequests>
+     */
+    #[ORM\OneToMany(targetEntity: FriendRequests::class, mappedBy: 'sender', orphanRemoval: true)]
+    private Collection $friendRequests;
+
+    public function __construct()
+    {
+        $this->recommendations = new ArrayCollection();
+        $this->friendRequests = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -103,5 +123,65 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    /**
+     * @return Collection<int, Recommendation>
+     */
+    public function getRecommendations(): Collection
+    {
+        return $this->recommendations;
+    }
+
+    public function addRecommendation(Recommendation $recommendation): static
+    {
+        if (!$this->recommendations->contains($recommendation)) {
+            $this->recommendations->add($recommendation);
+            $recommendation->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRecommendation(Recommendation $recommendation): static
+    {
+        if ($this->recommendations->removeElement($recommendation)) {
+            // set the owning side to null (unless already changed)
+            if ($recommendation->getUser() === $this) {
+                $recommendation->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, FriendRequests>
+     */
+    public function getFriendRequests(): Collection
+    {
+        return $this->friendRequests;
+    }
+
+    public function addFriendRequest(FriendRequests $friendRequest): static
+    {
+        if (!$this->friendRequests->contains($friendRequest)) {
+            $this->friendRequests->add($friendRequest);
+            $friendRequest->setSender($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFriendRequest(FriendRequests $friendRequest): static
+    {
+        if ($this->friendRequests->removeElement($friendRequest)) {
+            // set the owning side to null (unless already changed)
+            if ($friendRequest->getSender() === $this) {
+                $friendRequest->setSender(null);
+            }
+        }
+
+        return $this;
     }
 }

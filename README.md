@@ -4,11 +4,8 @@ MaReco is a web application that will allow users to create and share recommenda
 
 ## Current State
 
-🚧 **Project in initial setup phase** 🚧
+🚧 Currently working on Authentification 🚧
 
-- Basic Symfony 7.1 installation
-- Project structure setup
-- Development environment configuration
 
 ## Technologies
 
