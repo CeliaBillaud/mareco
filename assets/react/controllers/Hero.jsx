@@ -12,7 +12,7 @@ export default function (props) {
                 <p className="py-6">
                 {props.content}
                 </p>
-                <button className="btn btn-primary text-white">{props.button}</button>
+                <a className="btn btn-primary text-white" href={props.link}>{props.button}</a>
             </div>
             </div>
         </div>;
