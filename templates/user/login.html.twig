@@ -34,6 +34,11 @@
             </div>
         #}
 
+        {# To control the URL the user is redirected to on success #}
+        {# if referer contains "inscription" redirect to route else redirect to referer #}
+        <input type="hidden" name="_target_path" value={{ ("inscription" in app.request.headers.get('referer')) ? path('app_homepage') : app.request.headers.get('referer') }}> 
+
+
         <button class="btn btn-lg btn-primary text-white w-1/2 mx-auto" type="submit">
             Sign in
         </button>

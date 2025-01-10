@@ -27,7 +27,7 @@ class UserController extends AbstractController
     public function register(Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $passwordHasher): Response
     {
         $user = new User();
-        $form = $this->createForm(RegistrationFormType::class, $user);
+        $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -42,7 +42,7 @@ class UserController extends AbstractController
             $this->addFlash('secondary', 'Votre compte a bien été créé, un email de confirmation vous a été envoyé.');
 
             //todo : change redirection when login page is created
-            return $this->redirectToRoute('app_user_connexion', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_user_login', [], Response::HTTP_SEE_OTHER);
         } else {
             return $this->render('user/registration.html.twig', [
                 'formUser' => $form,
@@ -65,7 +65,7 @@ class UserController extends AbstractController
         ]);
     }
 
-    #[Route(path: '/deconnexion', name: 'app_user_logout')]
+    #[Route(path: '/deconnexion', name: 'app_user_deconnexion')]
     public function logout(): void
     {
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');}
