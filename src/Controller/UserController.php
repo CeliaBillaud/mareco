@@ -23,7 +23,7 @@ use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 class UserController extends AbstractController
 {
 
-    #[Route('/inscription', name: 'app_user_inscription', methods: ['GET', 'POST'])]
+    #[Route('/inscription', name: 'app_user_register', methods: ['GET', 'POST'])]
     public function register(Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $passwordHasher): Response
     {
         $user = new User();
