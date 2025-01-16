@@ -15,7 +15,7 @@
     </head>
     <body >
         <div class="navbar bg-base-100">
-        <!-- Menu burger pour les écrans mobiles -->
+        <!-- Navbar for mobile -->
             <div class="flex-1 dropdown lg:hidden">
                 <label tabindex="0" class="btn btn-ghost">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -28,6 +28,7 @@
                     <li><a href="{{ path('app_homepage') }}">Mes Recos</a></li>
                 </ul>
             </div>
+        <!-- Navbar lg -->
             <div class="flex-1 hidden lg:flex">
                 <a href="{{ path('app_homepage') }}">
                     <img src="{{ asset('build/images/logo.png') }}" class="lazy" alt="Logo" height="75" width="150">
@@ -40,7 +41,13 @@
             </div>
             <div class="flex-none">
                 {% if is_granted('ROLE_USER') %}
-                <a class="btn btn-primary btn-outline hover:!text-white" href={{path('app_user_logout')}}>Déconnexion</a>
+                    <div class="dropdown dropdown-hover dropdown-end">
+                        <div tabindex="0" role="button" class="btn m-1">Hello {{ app.user.username }}</div>
+                        <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                            <li><a>Mon Compte</a></li>
+                            <li><a class="btn btn-primary btn-outline hover:!text-white" href={{path('app_user_logout')}}>Déconnexion</a></li>
+                        </ul>
+                    </div>
                 {% else %}
                 <a class="btn btn-primary btn-outline hover:!text-white" href={{path('app_user_login')}}>Connexion</a>
                 {% endif %}

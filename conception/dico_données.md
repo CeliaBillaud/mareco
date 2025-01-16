@@ -49,6 +49,7 @@
 |------------------|-----------------|----------|--------------------|--------------------------------------------------------|
 | `id`            | INT             | Non      | AUTO_INCREMENT     | Identifiant unique de la relation d’amitié.            |
 | `user_id`       | INT (FK)        | Non      | -                  | Identifiant de l'utilisateur dans la relation.         |
+   
 | `friend_id`     | INT (FK)        | Non      | -                  | Identifiant de l'ami lié à l'utilisateur.              |
 | `created_at`    | DATETIME        | Non      | CURRENT_TIMESTAMP  | Date de création de la relation d’amitié.             |
 
