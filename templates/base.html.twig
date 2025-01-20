@@ -42,10 +42,10 @@
             <div class="flex-none">
                 {% if is_granted('ROLE_USER') %}
                     <div class="dropdown dropdown-hover dropdown-end">
-                        <div tabindex="0" role="button" class="btn m-1">Hello {{ app.user.username }}</div>
-                        <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-                            <li><a>Mon Compte</a></li>
-                            <li><a class="btn btn-primary btn-outline hover:!text-white" href={{path('app_user_logout')}}>Déconnexion</a></li>
+                        <div tabindex="0" role="button" class="btn m-1">{{ app.user.username }}</div>
+                        <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow gap-1">
+                            <li><a class="bg-primary text-white hover:!text-black">Mon Compte</a></li>
+                            <li><a href={{path('app_user_logout')}}>Déconnexion</a></li>
                         </ul>
                     </div>
                 {% else %}
